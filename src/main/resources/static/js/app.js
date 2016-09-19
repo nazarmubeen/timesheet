@@ -26,6 +26,18 @@ app2.config(function($routeProvider) {
         templateUrl : "/user",
         controller: "myCtrl"
     })
+    .when("/adduser", {
+        templateUrl : "/adduser",
+        controller: "myCtrl"
+    })
+    .when("/addclient", {
+        templateUrl : "/addclient",
+        controller: "myCtrl"
+    })
+    .when("/addproject", {
+        templateUrl : "/addproject",
+        controller: "myCtrl"
+    })
     .otherwise( {
     	redirectTo: '/menu'
     })

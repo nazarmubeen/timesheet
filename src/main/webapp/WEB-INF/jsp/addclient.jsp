@@ -10,7 +10,7 @@
                         <h3 class="panel-title col-md-offset-4"><b>Basic Information </b></h3>
                     </div>
 					
-                    <div class="panel-heading" ng-app="">
+                    <div class="panel-heading" >
                         <form role="form" >
                             
 							<div class="form-group row">

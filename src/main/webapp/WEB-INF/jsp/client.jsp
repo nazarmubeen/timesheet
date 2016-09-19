@@ -1,7 +1,7 @@
   <!-- /.panel-heading -->			
 					
                         <div class="panel-body">
-					<a href="addclient.html">	  <button type="button"  class="btn btn-success active">Add Client  </button> 
+					<a href="#addclient">	  <button type="button"  class="btn btn-success active">Add Client  </button> 
                             </a>
                                         
                                   

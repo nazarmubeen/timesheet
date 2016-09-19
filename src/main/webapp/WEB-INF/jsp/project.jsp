@@ -3,7 +3,7 @@
 							
 					
                         <div class="panel-body">
-					<a href="addproject.html">	  <button type="button"  class="btn btn-success active">Add Project  </button> 
+					<a href="#addproject">	  <button type="button"  class="btn btn-success active">Add Project  </button> 
                             </a>
 
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">

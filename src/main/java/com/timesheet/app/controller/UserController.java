@@ -58,13 +58,25 @@ public class UserController {
 	    public String getProjectPage(@RequestParam Optional<String> error) {
 	      return "project";
 	    }
+	  @RequestMapping(value = "/addproject" ,method=RequestMethod.GET)
+	    public String getAddProjectPage(@RequestParam Optional<String> error) {
+	      return "addproject";
+	    }
 	  @RequestMapping(value = "/client" ,method=RequestMethod.GET)
 	    public String getClientPage(@RequestParam Optional<String> error) {
 	      return "client";
 	    }
+	  @RequestMapping(value = "/addclient" ,method=RequestMethod.GET)
+	    public String getAddClientPage(@RequestParam Optional<String> error) {
+	      return "addclient";
+	    }
 	  @RequestMapping(value = "/user" ,method=RequestMethod.GET)
 	    public String getUserPage(@RequestParam Optional<String> error) {
 	      return "user";
+	    }
+	  @RequestMapping(value = "/adduser" ,method=RequestMethod.GET)
+	    public String getAddUserPage(@RequestParam Optional<String> error) {
+	      return "adduser";
 	    }
 	  @RequestMapping(value = "/navigation" ,method=RequestMethod.GET)
 	    public String getHomePage(@RequestParam Optional<String> error) {
@@ -74,10 +86,7 @@ public class UserController {
 	    public String getMenuPage(@RequestParam Optional<String> error) {
 	      return "menu";
 	    }
-	  @RequestMapping(value = "/addclient" ,method=RequestMethod.GET)
-	    public String getClientAddPage(@RequestParam Optional<String> error) {
-	      return "addclient";
-	    }
+	  
 	  @RequestMapping(value = "/register" ,method=RequestMethod.GET)
 	    public String getRegister(@RequestParam Optional<String> error) {
 	      return "register";

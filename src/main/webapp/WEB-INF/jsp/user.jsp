@@ -4,7 +4,7 @@
 							
 					
                         <div class="panel-body">
-					<a href="adduser.html">	  <button type="button"  class="btn btn-success active">Add User  </button> 
+					<a href="#adduser">	  <button type="button"  class="btn btn-success active">Add User  </button> 
                             </a>
 
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">

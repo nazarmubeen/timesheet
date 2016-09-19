@@ -152,11 +152,14 @@
     <script src="../dist/js/sb-admin-2.js"></script>
         
  <div  id="page-wrapper" style="background-color:  #f5f5f5" ng-app="myApp1">
+		 {{firstName}} {{lastName}}
 		<div class="panel-heading">
             <div class="row">
+            
+             
                 <div ng-view="">
                 <!-- /.col-lg-12 -->
-                {{firstName}} {{lastName}}
+               
             </div>
 
         </div>
