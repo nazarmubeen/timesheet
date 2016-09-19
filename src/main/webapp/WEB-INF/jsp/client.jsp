@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-
-<head>
-
-   
-</head>
-
-<body>
-
-  
-        <%@include file="menu.jsp" %>
-<div id="page-wrapper" style="background-color:  #f5f5f5" >
-		  <!-- /.panel-heading -->			
+  <!-- /.panel-heading -->			
 					
                         <div class="panel-body">
 					<a href="addclient.html">	  <button type="button"  class="btn btn-success active">Add Client  </button> 
@@ -57,9 +43,3 @@
 		
         </div>
 		<!-- /#page-wrapper -->
-
-    </div>
-
-</body>
-
-</html>

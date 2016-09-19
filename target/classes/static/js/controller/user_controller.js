@@ -8,6 +8,8 @@ app1.controller('myCtrl', function($scope) {
     $scope.lastName = "Doe";
 });
 
+
+
 app1.controller('userCtrl', function($scope) {
 	$scope.email="email";
     $scope.name="nazar";

@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
-<head>
-
-	
-</head>
-
-<body>
-
-     <%@include file="menu.jsp" %>
-        <div id="page-wrapper" style="background-color:  #f5f5f5" >
 		  <!-- /.panel-heading -->
                    <div class="panel-heading">
          
@@ -123,11 +111,3 @@
        
 		<!-- /#page-wrapper -->
 
-    </div>
-    <!-- /#wrapper -->
-
-   
-
-</body>
-
-</html>

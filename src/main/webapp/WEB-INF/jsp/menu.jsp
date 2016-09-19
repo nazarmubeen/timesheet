@@ -8,7 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+ 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -90,16 +92,16 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="home.html"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
+                            <a href="#home"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
                         </li>
 						 <li>
-                            <a href="client.html"><i class="fa fa-dashboard fa-fw"></i>Clients</a>
+                            <a href="#client"><i class="fa fa-dashboard fa-fw"></i>Clients</a>
                         </li>
 						 <li>
-                            <a href="project.html"><i class="fa fa-dashboard fa-fw"></i>Projects</a>
+                            <a href="#project"><i class="fa fa-dashboard fa-fw"></i>Projects</a>
                         </li>
 						 <li>
-                            <a href="user.html"><i class="fa fa-dashboard fa-fw"></i>Users</a>
+                            <a href="#user"><i class="fa fa-dashboard fa-fw"></i>Users</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i>Time Reports<span class="fa arrow"></span></a>
@@ -149,5 +151,39 @@
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
         
+ <div  id="page-wrapper" style="background-color:  #f5f5f5" ng-app="myApp1">
+		<div class="panel-heading">
+            <div class="row">
+                <div ng-view="">
+                <!-- /.col-lg-12 -->
+                {{firstName}} {{lastName}}
+            </div>
+
+        </div>
+        <!-- /#page-wrapper -->
+</div>
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../vendor/raphael/raphael.min.js"></script>
+    <script src="../vendor/morrisjs/morris.min.js"></script>
+    <script src="../data/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+	<script src="/js/app.js"></script>
+	<script src="/js/controller/home_controller.js"></script>
+
 </body>
+
 </html>

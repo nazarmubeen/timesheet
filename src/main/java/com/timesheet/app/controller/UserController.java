@@ -72,7 +72,7 @@ public class UserController {
 	    }
 	  @RequestMapping(value = "/home" ,method=RequestMethod.GET)
 	    public String getMenuPage(@RequestParam Optional<String> error) {
-	      return "home";
+	      return "menu";
 	    }
 	  @RequestMapping(value = "/addclient" ,method=RequestMethod.GET)
 	    public String getClientAddPage(@RequestParam Optional<String> error) {
