@@ -19,7 +19,7 @@ app1.controller('userCtrl', function($scope) {
 
 app1.controller('UserController', ['$scope','$window', 'UserService', function($scope , $window, UserService) {
     var self = this;
-    self.user={id:null,name:'',password:'',email_id:'',confirmpassword:''};
+    self.user={id:null,user_id:null,name:'',password:'',email_id:'',confirmpassword:''};
     self.users=[];
     self.submit = submit;
     self.reset = reset;
@@ -27,14 +27,22 @@ app1.controller('UserController', ['$scope','$window', 'UserService', function($
     $scope.registerform = {};
     $scope.loginform={};
     function createUser(user){
-        UserService.createUser(user)
+        UserService.createUser(user).then(
+        	function(data){
+        		console.log('data'+data);
+        		self.user=data;
+        		console.log('self.user'+self.user);
+        		console.log('user data id'+self.user.user_id);
+        	}	
+        )
+        
+        
     }
     
     function submit() {
         if(self.user.id===null){
             console.log('Saving New User', self.user);
-            user=createUser(self.user);
-            console.log('Created user Id', self.user.id);
+            createUser(self.user);
         }else{
             updateUser(self.user, self.user.id);
             console.log('User updated with id ', self.user.id);

@@ -1,5 +1,6 @@
 package com.timesheet.app.controller;
 
+
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Optional;
@@ -14,14 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.portlet.ModelAndView;
+
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.timesheet.app.dao.UserRepository;
+
 import com.timesheet.app.dao.UserService;
-import com.timesheet.app.dao.UserServiceImpl;
+
 import com.timesheet.app.model.User;
+import org.springframework.http.MediaType;
 
 
 
@@ -97,8 +98,8 @@ public class UserController {
 	    }
 	  
 	  @ResponseBody
-	  @RequestMapping(value = "/registeruser" ,method=RequestMethod.POST)
-	    public ResponseEntity<User> getRegisterPage(@RequestBody User user,    UriComponentsBuilder ucBuilder) {
+	  @RequestMapping(value = "/registeruser" ,method=RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+	  public ResponseEntity<User> getRegisterPage(@RequestBody User user,    UriComponentsBuilder ucBuilder) {
 	
 		  System.out.println("Creating User " + user.getName());
 		  user.setCreated_date(DateFormat.getDateTimeInstance().format(new Date()).toString());
@@ -107,10 +108,9 @@ public class UserController {
 		  
 	        HttpHeaders headers = new HttpHeaders();
 	        headers.setLocation(ucBuilder.path("/user/{id}").buildAndExpand(user.getUser_id()).toUri());
-	        headers.setLocation(ucBuilder.path("/user/{email_id}").buildAndExpand(user.getEmail_id()).toUri());
-	        return new ResponseEntity<User>(headers, HttpStatus.CREATED);  
-		
-		
+	        System.out.println("UserId generated"+user.getUser_id());
+	        return new ResponseEntity<User>(user, HttpStatus.OK);  
+
 		}
 	  
 }
