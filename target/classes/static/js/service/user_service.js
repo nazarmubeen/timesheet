@@ -14,19 +14,21 @@ angular.module('myApp').factory('UserService', ['$http', '$q', function($http, $
 
     return factory;
     
-    function getUser(user,password,id)
+    function getUser(user,email_id,password)
     {
     	 var deferred = $q.defer();
-    	 $http.get(REST_SERVICE_URI_LOGIN+id)
+    	 $http.get(REST_SERVICE_URI_LOGIN+email_id+"/"+password)
          .then(
          function (response) {
              deferred.resolve(response.data);
+            
          },
          function(errResponse){
              console.error('Error while updating User');
              deferred.reject(errResponse);
          }
      );
+    	 
      return deferred.promise;
     }
 

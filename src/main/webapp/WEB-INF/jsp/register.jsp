@@ -68,7 +68,9 @@
 								 <div class="form-group">
                                     <input class="form-control" placeholder="Confirm Password" ng-model="ctrl.user.confirmpassword" type="password" value="">
                                 </div>{{ctrl.user.confirmpassword}}
-								
+								 <div  ng-if="ctrl.user.message!=null">
+                        {{ctrl.user.message}}
+                        </div>
                                 <!-- Change this to a button or input when using this as a form -->
                               
                               <input type="submit"   class="btn btn-lg btn-success btn-block" ng-disabled="registerform.$invalid">

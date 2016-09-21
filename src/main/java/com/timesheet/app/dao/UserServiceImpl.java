@@ -39,9 +39,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Optional<User> getUserByEmailID(String email_id) {
+	public User getUserByEmailID(String email_id) {
 		// TODO Auto-generated method stub
-		return null;
+		return userRepository.getUserByEmailID(email_id);
 	}
 
 

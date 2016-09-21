@@ -47,11 +47,15 @@
                         <form role="form" ng-submit="ctrl.getUser()" name=ctrl.loginform>
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" type="text" ng-model="ctrl.user.id" autofocus>
-                                </div>{{ctrl.user.id}}
+                                    <input class="form-control" placeholder="E-mail" type="text" ng-model="ctrl.user.email_id" autofocus>
+                                </div>{{ctrl.user.email_id}}
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" ng-model="ctrl.user.password" value="">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" ng-model="ctrl.user.password" >
                                 </div>{{ctrl.user.password}}
+                                
+                                 <div  ng-if="ctrl.user.message!=null">
+                        {{ctrl.user.message}}
+                        </div>
                                <div class="checkbox">
                                     <label>
                                         <input name="remember" type="checkbox" value="Remember Me" ng-model="remember">Remember Me
@@ -61,9 +65,10 @@
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
                                  <input type="submit"   class="btn btn-lg btn-success btn-block" ng-disabled="ctrl.loginform.$invalid">
-                                <a href="/WEB-INF/jsp/index.html" class="btn btn-lg btn-success btn-block">Login</a>
+                               
                             </fieldset>
                         </form>
+                       
                     </div>
 					<div class="panel-heading">
                         <h3 class="panel-title"><label>Don't have an account? <a href="/register"> sign up here</a></label></h3>

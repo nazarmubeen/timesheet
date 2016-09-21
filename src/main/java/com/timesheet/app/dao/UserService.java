@@ -18,7 +18,7 @@ public interface UserService {
     
     User setUsers(User user);
 
-	Optional<User> getUserByEmailID(String email_id);
+	User getUserByEmailID(String email_id);
 
 
 	

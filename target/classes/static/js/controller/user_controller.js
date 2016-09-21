@@ -19,7 +19,7 @@ app1.controller('userCtrl', function($scope) {
 
 app1.controller('UserController', ['$scope','$window', 'UserService', function($scope , $window, UserService) {
     var self = this;
-    self.user={user_id:null,name:'',password:'',email_id:'',confirmpassword:''};
+    self.user={user_id:null,name:'',password:'',email_id:'',confirmpassword:'',message:''};
     self.users=[];
     self.submit = submit;
     self.reset = reset;
@@ -34,6 +34,10 @@ app1.controller('UserController', ['$scope','$window', 'UserService', function($
         		console.log('user created id'+self.user.user_id);
         		
         	}	
+        	, function(errResponse){
+                console.error('Error while creating Users in controller');
+                self.user.message='error occured in creating user';
+            }
         )
         
         
@@ -55,10 +59,24 @@ app1.controller('UserController', ['$scope','$window', 'UserService', function($
     
     function getUser()
     {
-    	if(!(self.user.id===null)){
+    	if(!(self.user.email_id===null)){
     		 
-    	self.user=UserService.getUser(self.user,self.user.password,self.user.id);
-    	$window.location.href = '/home.html'
+    	self.user=UserService.getUser(self.user,self.user.email_id,self.user.password).then(
+    	function(data)
+    	{
+    		self.user=data;
+    		console.log("user"+self.user);
+    		console.log("userid"+self.user.user_id);
+    		
+    	}, function(errResponse){
+            console.error('Error while fetching Users in controller');
+            self.user.message='email or password is incorrect';
+        }
+    	
+    	)
+    	
+    	
+    	
     	}
     	else{
     		console.log("getting user failed");

@@ -101,6 +101,7 @@ public class UserController {
 	  @RequestMapping(value = "/registeruser" ,method=RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
 	  public ResponseEntity<User> getRegisterPage(@RequestBody User user,    UriComponentsBuilder ucBuilder) {
 	
+		  try{
 		  System.out.println("Creating User " + user.getName());
 		  user.setCreated_date(DateFormat.getDateTimeInstance().format(new Date()).toString());
 		  user.setModified_date(DateFormat.getDateTimeInstance().format(new Date()).toString());
@@ -109,8 +110,14 @@ public class UserController {
 	        HttpHeaders headers = new HttpHeaders();
 	        headers.setLocation(ucBuilder.path("/user/{id}").buildAndExpand(user.getUser_id()).toUri());
 	        System.out.println("UserId generated"+user.getUser_id());
+	    
 	        return new ResponseEntity<User>(user, HttpStatus.OK);  
-
+		  }
+		  catch(Exception e){
+			  System.out.println(e);
+			  return new ResponseEntity<User>(HttpStatus.EXPECTATION_FAILED);  
+			  
+		  }
 		}
 	  
 }
