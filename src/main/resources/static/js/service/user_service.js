@@ -35,14 +35,9 @@ angular.module('myApp').factory('UserService', ['$http', '$q', function($http, $
         $http.post(REST_SERVICE_URI, user)
             .then(
             function (response) {
-            	console.log('response before'+response);
-            	console.log('response data'+response.data);
-            	console.log('response data'+response.data);
-            	console.log('response stringify'+JSON.stringify(response.data));
-            	
-            	response=JSON.stringify(response.data);
-                deferred.resolve(response);
-                console.log('user'+response+'user'+user);
+           
+                deferred.resolve(response.data);
+                
             },
             function(errResponse){
                 console.error('Error while creating User');

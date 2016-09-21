@@ -46,11 +46,12 @@
                     </div>
                     <div class="panel-body" >
                     
-                    <div ng-if="ctrl.user.id!=null">
-                    Registration is successful {{ctrl.user.id}}
+                    <div ng-if="ctrl.user.user_id!=null">
+                    Registration is successful {{ctrl.user.user_id}}
                     </div>
                     
                     
+                     <div ng-if="ctrl.user.user_id==null">
                         <form role="form" ng-submit="ctrl.submit()" name="registerform">
                             <fieldset>
                                 <div class="form-group">
@@ -74,6 +75,7 @@
                               <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="registerform.$pristine">Reset Form</button>
                             </fieldset>
                         </form>
+                          </div>
                     </div>
 					<div class="panel-heading">
                         <h3 class="panel-title"><label>Already Have an account <a href="login.html"> login here</a></label></h3>

@@ -19,7 +19,7 @@ app1.controller('userCtrl', function($scope) {
 
 app1.controller('UserController', ['$scope','$window', 'UserService', function($scope , $window, UserService) {
     var self = this;
-    self.user={id:null,user_id:null,name:'',password:'',email_id:'',confirmpassword:''};
+    self.user={user_id:null,name:'',password:'',email_id:'',confirmpassword:''};
     self.users=[];
     self.submit = submit;
     self.reset = reset;
@@ -29,10 +29,10 @@ app1.controller('UserController', ['$scope','$window', 'UserService', function($
     function createUser(user){
         UserService.createUser(user).then(
         	function(data){
-        		console.log('data'+data);
+        		$scope.user=data;
         		self.user=data;
-        		console.log('self.user'+self.user);
-        		console.log('user data id'+self.user.user_id);
+        		console.log('user created id'+self.user.user_id);
+        		
         	}	
         )
         
@@ -40,14 +40,15 @@ app1.controller('UserController', ['$scope','$window', 'UserService', function($
     }
     
     function submit() {
-        if(self.user.id===null){
+        if(self.user.user_id===null){
             console.log('Saving New User', self.user);
             createUser(self.user);
+            console.log('inside submit user created id'+self.user.user_id);		
         }else{
             updateUser(self.user, self.user.id);
             console.log('User updated with id ', self.user.id);
         }
-        reset();
+       
     }
     
    
@@ -66,9 +67,8 @@ app1.controller('UserController', ['$scope','$window', 'UserService', function($
     
     function reset(){
         self.user={name:'',password:'',email_id:'',confirmpassword:''};
-        $scope.registerform.id=self.user.id;
-        $scope.registerform.$setPristine(); //reset Form
-        $scope.registerform.id=self.user.id;
+        $scope.registerform.id=self.user.user_id;
+       
     }
 
 }]);
