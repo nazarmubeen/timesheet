@@ -24,6 +24,7 @@ app1.controller('UserController', ['$scope','$window', 'UserService', function($
     self.submit = submit;
     self.reset = reset;
     self.getUser=getUser;
+    self.recoverPassword=recoverPassword;
     $scope.registerform = {};
     $scope.loginform={};
     function createUser(user){
@@ -61,7 +62,23 @@ app1.controller('UserController', ['$scope','$window', 'UserService', function($
        
     }
     
-   
+    function recoverPassword()
+    {
+    	self.user.message='password updated sucessful clicked';
+    	UserService.UpdateUser(self.user.email_id,self.user.password).then(
+    			
+    			function(data)
+    	    	{
+		            self.user.message='password updated sucessful';
+    	    	},
+    			function(errResponse)
+    	    	{
+		            self.user.message='problem occured in updating password please try again';
+    	    	}
+    	)
+    	
+    	
+    }
     
     function getUser()
     {

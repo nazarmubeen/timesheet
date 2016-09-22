@@ -44,25 +44,28 @@
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body" >
-                        <form role="form" ng-submit="ctrl.getUser()" name=ctrl.loginform>
+                        <form role="form" ng-submit="ctrl.recoverPassword()" name=ctrl.loginform>
                             <fieldset>
+                            <div class="form-group">
+                             <input class="form-control" placeholder="E-mail"  type="email" ng-model="ctrl.user.email_id" autofocus> 
+              
+							</div> {{ctrl.user.email_id}}
+                              
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" type="text" ng-model="ctrl.user.email_id" autofocus>
-                                </div>{{ctrl.user.email_id}}
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" ng-model="ctrl.user.password" >
+                                    <input class="form-control" placeholder="new Password" name="password" type="password" ng-model="ctrl.user.password" >
                                 </div>{{ctrl.user.password}}
                                 
+                               <div class="form-group">
+                                    <input class="form-control" placeholder="Confirm Password" ng-model="ctrl.user.confirmpassword" type="password" value="">
+                                </div>{{ctrl.user.confirmpassword}}
+                                
                                  <div  ng-if="ctrl.user.message!=null">
+                                 	<div class="panel-heading">
+                        <h3 class="panel-title"><label> <a href="login.html"> login here</a></label></h3>
+                    </div>
                         {{ctrl.user.message}}
                         </div>
-                               <div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Remember Me" ng-model="remember">Remember Me
-                                    </label>
-									
-									<label><a href="/recoverpassword">Forgot your password</a></label>
-                                </div>
+                               
                                 <!-- Change this to a button or input when using this as a form -->
                                  <input type="submit"   class="btn btn-lg btn-success btn-block" ng-disabled="ctrl.loginform.$invalid">
                                

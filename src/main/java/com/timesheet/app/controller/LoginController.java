@@ -30,6 +30,7 @@ public class LoginController {
 	private UserService userservice;
 	User user;
 	
+	
 	@ResponseBody
 	@RequestMapping(value = "/home/{id}" ,method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public  ResponseEntity<User> validateUser(@PathVariable("id") long id ) {
@@ -70,6 +71,33 @@ public class LoginController {
     }
 	
 	
+	@ResponseBody
+    @RequestMapping(value = "/userpassword/{email_id}/{password}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<User> updateUser(@PathVariable("email_id") String email_id,@PathVariable("password") String password) {
+        System.out.println("Fetching User with email_id " + email_id);
+        
+        
+        user = userservice.getUserByEmailID(email_id);
+       
+        if (user == null) {
+          System.out.println("User with id " + email_id + " not found");
+            return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+        }
+        else{
+        	try{
+        	 userservice.updateUserPassword(email_id, password);
+        	 System.out.println("password with id " + email_id +"updated" );
+        	 user = userservice.getUserByEmailID(email_id);
+        	 return new ResponseEntity<User>(user,HttpStatus.OK);
+        	}
+        	catch(Exception e)
+        	{
+        		System.out.println(e);
+        		 return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+        	}
+        }
+       
+    }
 	  
   
 	

@@ -20,7 +20,7 @@ public interface UserService {
 
 	User getUserByEmailID(String email_id);
 
-
+	void updateUserPassword(String email_id,String password); 
 	
     
     

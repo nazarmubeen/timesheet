@@ -51,6 +51,11 @@ public class UserController {
 	    return "User succesfully created with id = " +user;
 	  }
 	  
+	 @RequestMapping(value = "/recoverpassword" ,method=RequestMethod.GET)
+	    public String getPasswordPage(@RequestParam Optional<String> error) {
+	      return "password_recovery";
+	    }
+	
 	  @RequestMapping(value = "/login" ,method=RequestMethod.GET)
 	    public String getLoginPage(@RequestParam Optional<String> error) {
 	      return "login";
