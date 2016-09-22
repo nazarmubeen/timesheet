@@ -7,12 +7,35 @@ angular.module('myApp').factory('UserService', ['$http', '$q', function($http, $
 
     var REST_SERVICE_URI = 'http://localhost:8080/registeruser';
     var REST_SERVICE_URI_LOGIN = 'http://localhost:8080/login/user/';
+    var REST_SERVICE_URI_VALIDATE='http://localhost:8080/login/home/';
     var factory = {      
         createUser: createUser,
-        getUser:getUser
+        getUser:getUser,
+        validateUser:validateUser
     };
 
     return factory;
+    
+    function validateUser(user,id)
+    {
+   	 var deferred = $q.defer();
+	 $http.get(REST_SERVICE_URI_VALIDATE+id)
+     .then(
+     function (response) {
+    	 console.log("user validation successful")
+         deferred.resolve(response.data); 
+     },
+     function(errResponse){
+         console.error('Error while updating User');
+         deferred.reject(errResponse);
+     }
+ );
+	 
+ return deferred.promise;
+    
+    	
+    }
+    
     
     function getUser(user,email_id,password)
     {

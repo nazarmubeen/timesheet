@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 import org.springframework.http.MediaType;
 
@@ -27,6 +29,26 @@ public class LoginController {
 	@Autowired
 	private UserService userservice;
 	User user;
+	
+	@ResponseBody
+	@RequestMapping(value = "/home/{id}" ,method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public  ResponseEntity<User> validateUser(@PathVariable("id") long id ) {
+		Optional<User> userdetail;
+		userdetail=userservice.getUserById(id);
+		System.out.println(userdetail.isPresent());
+		
+		if(!userdetail.isPresent())
+	  {
+			  return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+	  }
+		else{
+			user=userdetail.get();
+			 System.out.println("User login with id " + id + " successful");
+        	 return new ResponseEntity<User>(user,HttpStatus.OK); 
+		}
+    }
+	
+	
 	
 	@ResponseBody
     @RequestMapping(value = "/user/{email_id}/{password}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -46,6 +68,9 @@ public class LoginController {
         }
        
     }
+	
+	
+	  
   
 	
 	}

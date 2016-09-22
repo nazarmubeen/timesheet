@@ -27,6 +27,9 @@ app1.controller('UserController', ['$scope','$window', 'UserService', function($
     $scope.registerform = {};
     $scope.loginform={};
     function createUser(user){
+    	
+    	if(user.confirmpassword==user.password)
+    		{
         UserService.createUser(user).then(
         	function(data){
         		$scope.user=data;
@@ -40,7 +43,10 @@ app1.controller('UserController', ['$scope','$window', 'UserService', function($
             }
         )
         
-        
+    		}
+    	else{
+    		self.user.message='password and confirm password don not match';
+    	}
     }
     
     function submit() {
@@ -67,6 +73,17 @@ app1.controller('UserController', ['$scope','$window', 'UserService', function($
     		self.user=data;
     		console.log("user"+self.user);
     		console.log("userid"+self.user.user_id);
+    		UserService.validateUser(self.user,self.user.user_id).then(
+    				function(data)
+    				{
+    					console.log("redirecting to home page")
+    					$window.location.href = '/home.html';
+    				},
+    				function(errResponse){
+    		            console.error('Error while fetching Users in controller');
+    		            self.user.message='user is not authorized to view the page';
+    		            $window.location.href = '/login.html';
+    		        })
     		
     	}, function(errResponse){
             console.error('Error while fetching Users in controller');
