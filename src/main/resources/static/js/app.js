@@ -14,9 +14,9 @@ app2.config(function($routeProvider) {
         templateUrl : "/menu",
         controller: "myCtrl"
     })
-    .when("/client", {
-        templateUrl : "client",
-        controller: "myCtrl"
+    .when("/clienthome", {
+        templateUrl : "/clienthome",
+        controller: "ClientController as ClientCtrl"
     })
     .when("/project", {
         templateUrl : "/project",
@@ -32,7 +32,7 @@ app2.config(function($routeProvider) {
     })
     .when("/addclient", {
         templateUrl : "/addclient",
-        controller: "myCtrl"
+        controller: "ClientController as ClientCtrl"
     })
     .when("/addproject", {
         templateUrl : "/addproject",

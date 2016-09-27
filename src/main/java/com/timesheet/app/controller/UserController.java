@@ -68,14 +68,7 @@ public class UserController {
 	    public String getAddProjectPage(@RequestParam Optional<String> error) {
 	      return "addproject";
 	    }
-	  @RequestMapping(value = "/client" ,method=RequestMethod.GET)
-	    public String getClientPage(@RequestParam Optional<String> error) {
-	      return "client";
-	    }
-	  @RequestMapping(value = "/addclient" ,method=RequestMethod.GET)
-	    public String getAddClientPage(@RequestParam Optional<String> error) {
-	      return "addclient";
-	    }
+	 
 	  @RequestMapping(value = "/user" ,method=RequestMethod.GET)
 	    public String getUserPage(@RequestParam Optional<String> error) {
 	      return "user";
@@ -84,6 +77,17 @@ public class UserController {
 	    public String getAddUserPage(@RequestParam Optional<String> error) {
 	      return "adduser";
 	    }
+	  
+	  @RequestMapping(value = "/clienthome" ,method=RequestMethod.GET)
+	    public String getClientPage(@RequestParam Optional<String> error) {
+	      return "client";
+	    }
+	 
+	  @RequestMapping(value = "/addclient" ,method=RequestMethod.GET)
+	    public String getAddClientPage(@RequestParam Optional<String> error) {
+	      return "addclient";
+	    }
+	  
 	  @RequestMapping(value = "/navigation" ,method=RequestMethod.GET)
 	    public String getHomePage(@RequestParam Optional<String> error) {
 	      return "navigation";

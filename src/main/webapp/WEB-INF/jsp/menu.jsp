@@ -95,7 +95,7 @@
                             <a href="#home"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
                         </li>
 						 <li>
-                            <a href="#client"><i class="fa fa-dashboard fa-fw"></i>Clients</a>
+                            <a href="#clienthome"><i class="fa fa-dashboard fa-fw"></i>Clients</a>
                         </li>
 						 <li>
                             <a href="#project"><i class="fa fa-dashboard fa-fw"></i>Projects</a>
@@ -186,7 +186,9 @@
     <script src="../dist/js/sb-admin-2.js"></script>
 	<script src="/js/app.js"></script>
 	<script src="/js/controller/home_controller.js"></script>
-
+	<script src="/js/controller/client_controller.js"></script>
+	<script src="/js/controller/home_controller.js"></script>
+	<script src="/js/service/client_service.js"></script>
 </body>
 
 </html>

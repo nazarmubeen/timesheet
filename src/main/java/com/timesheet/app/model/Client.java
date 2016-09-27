@@ -11,11 +11,13 @@ import java.util.List;
  * 
  */
 @Entity
+@Table(name="client")
 @NamedQuery(name="Client.findAll", query="SELECT c FROM Client c")
-public class Client implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class Client {
+	
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="client_id")
 	private int clientId;
 
@@ -74,6 +76,35 @@ public class Client implements Serializable {
 
 	public Client() {
 	}
+	
+	
+
+	public Client(int clientId, String clientAddress, String clientCity, String clientCountry, String clientEmail,
+			String clientFax, String clientName, String clientPhone, String clientPostalcode, String clientState,
+			String clientWebsite, Date createdDatetime, String createdUser, String fiscalInformation,
+			Date modifiedDatetime, String modifiedUser, String status, List<Project> projects) {
+		super();
+		this.clientId = clientId;
+		this.clientAddress = clientAddress;
+		this.clientCity = clientCity;
+		this.clientCountry = clientCountry;
+		this.clientEmail = clientEmail;
+		this.clientFax = clientFax;
+		this.clientName = clientName;
+		this.clientPhone = clientPhone;
+		this.clientPostalcode = clientPostalcode;
+		this.clientState = clientState;
+		this.clientWebsite = clientWebsite;
+		this.createdDatetime = createdDatetime;
+		this.createdUser = createdUser;
+		this.fiscalInformation = fiscalInformation;
+		this.modifiedDatetime = modifiedDatetime;
+		this.modifiedUser = modifiedUser;
+		this.status = status;
+		this.projects = projects;
+	}
+
+
 
 	public int getClientId() {
 		return this.clientId;
@@ -233,4 +264,15 @@ public class Client implements Serializable {
 		return project;
 	}
 
+	@Override
+	public String toString() {
+		return "Client [clientId=" + clientId + ", clientAddress=" + clientAddress + ", clientCity=" + clientCity
+				+ ", clientCountry=" + clientCountry + ", clientEmail=" + clientEmail + ", clientFax=" + clientFax
+				+ ", clientName=" + clientName + ", clientPhone=" + clientPhone + ", clientPostalcode="
+				+ clientPostalcode + ", clientState=" + clientState + ", clientWebsite=" + clientWebsite
+				+ ", createdDatetime=" + createdDatetime + ", createdUser=" + createdUser + ", fiscalInformation="
+				+ fiscalInformation + ", modifiedDatetime=" + modifiedDatetime + ", modifiedUser=" + modifiedUser
+				+ ", status=" + status + ", projects=" + projects + "]";
+	}
+	
 }
