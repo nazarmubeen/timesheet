@@ -35,6 +35,7 @@ app1.controller('UserController', ['$scope','$window', 'UserService', function($
         	function(data){
         		$scope.user=data;
         		self.user=data;
+        		
         		console.log('user created id'+self.user.user_id);
         		
         	}	

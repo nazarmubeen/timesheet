@@ -18,7 +18,7 @@ app2.factory('ClientService', ['$http', '$q', function($http, $q){
 		        console.log('saving client in service+'+JSON.stringify(client));
 		        console.log('saving client in service+'+client);
 		        
-		        $http.post(REST_SERVICE_URI, client)
+		        $http.post(REST_SERVICE_URI, JSON.stringify(client))
 		            .then(
 		            function (response) {
 		            	console.log('response success'+response);

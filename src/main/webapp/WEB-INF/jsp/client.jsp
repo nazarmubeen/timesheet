@@ -1,10 +1,12 @@
   <!-- /.panel-heading -->			
 					
                         <div class="panel-body">
-					<a href="#addclient">	  <button type="button"  class="btn btn-success active">Add Client  </button> 
+					<a href="#addclient">	  <button type="button"  class="btn btn-success active">Add New Client  </button> 
                             </a>
-                                        
-                                  
+                            
+                   
+                        
+                   
 										
 								
 							
@@ -18,6 +20,8 @@
                                         <th>Employees Involved</th>
                                         <th>Hours worked</th>
 										<th>status</th>
+										<th>Edit</th>
+										<th>delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -28,6 +32,10 @@
                                         <td class="center">400</td>
                                         <td class="center">12000</td>
 										<td class="center">active</td>
+										<td class="center"> <a href="#addclient">	  <button type="button"  class="btn btn-success active">Edit</button> 
+                            </a></td>
+                             <td class="center"> <a href="#addclient">	  <button type="button"  class="btn btn-success active">Delete</button> 
+                            </a></td>
                                     </tr>
                                     <tr class="even gradeC">
                                         <td>Microsoft</td>
@@ -36,6 +44,10 @@
                                         <td class="center">50</td>
                                         <td class="center">5000</td>
 										<td class="center">active</td>
+										<td class="center"> <a href="#addclient">	  <button type="button"  class="btn btn-success active">Edit</button> 
+                            </a></td>
+                             <td class="center"> <a href="#addclient">	  <button type="button"  class="btn btn-success active">Delete</button> 
+                            </a></td>
                                     </tr>
 									
 				</tbody>
