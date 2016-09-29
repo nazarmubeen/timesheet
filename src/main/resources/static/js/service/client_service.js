@@ -5,12 +5,57 @@
 app2.factory('ClientService', ['$http', '$q', function($http, $q){
 	
 	 var REST_SERVICE_URI = 'http://localhost:8080/client/registerclient';
+	 var REST_SERVICE_URI_Client = 'http://localhost:8080/client/getclients';
+	 
 	 
 	 var factory = {      
-		       createClient:createClient
+		       createClient:createClient,
+		       getClients:getClients,
+		       getClient:getClient
 		    };
 
 		    return factory;
+		    
+		    function getClient(clientId)
+		    {
+		    	 var deferred = $q.defer();
+		    	
+		    	$http.get(REST_SERVICE_URI_Client+"/"+clientId).then(
+		    			
+		    	function(response)
+		    	{
+		    		 deferred.resolve(response.data);
+		    	},
+		    	function(errResponse){
+		    		console.error('Error while getting clients');
+	                deferred.reject(errResponse);
+		    	}
+		    	);
+		    	
+		    	 return deferred.promise;
+		    	
+		    }
+		    
+		    function getClients()
+		    {
+		    	 var deferred = $q.defer();
+		    	
+		    	$http.get(REST_SERVICE_URI_Client).then(
+		    			
+		    	function(response)
+		    	{
+		    		 deferred.resolve(response.data);
+		    	},
+		    	function(errResponse){
+		    		console.error('Error while getting clients');
+	                deferred.reject(errResponse);
+		    	}
+		    	);
+		    	
+		    	 return deferred.promise;
+		    	
+		    }
+		    
 		    
 		    
 		    function createClient(client) {

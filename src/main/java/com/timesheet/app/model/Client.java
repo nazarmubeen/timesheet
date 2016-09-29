@@ -19,7 +19,7 @@ public class Client {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="client_id")
-	private int clientId;
+	private long clientId;
 
 	@Column(name="client_address")
 	private String clientAddress;
@@ -106,11 +106,11 @@ public class Client {
 
 
 
-	public int getClientId() {
+	public long getClientId() {
 		return this.clientId;
 	}
 
-	public void setClientId(int clientId) {
+	public void setClientId(long clientId) {
 		this.clientId = clientId;
 	}
 

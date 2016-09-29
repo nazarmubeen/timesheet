@@ -26,7 +26,7 @@
                               
                             </a>
                                 
-                         <div ng-if="ClientCtrl.client.clientId==null">       
+                         <div ng-init="ClientCtrl.init()">       
 							<div class="form-group row">
 									<label class="col-xs-2 " for="name">Name</label>
                                    <div class="col-xs-5"> <input  class="form-control" placeholder="Name" type="text" ng-model="ClientCtrl.client.clientName" autofocus></div>

@@ -2,6 +2,7 @@ package com.timesheet.app.controller;
 
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,6 +50,7 @@ public class ClientController {
 	        HttpHeaders headers = new HttpHeaders();
 	        headers.setLocation(ucBuilder.path("/client/{id}").buildAndExpand(client.getClientId()).toUri());
 	        System.out.println("ClientId generated"+client.getClientId());
+	        
 	        return new ResponseEntity<Client>(client, HttpStatus.OK);  
 		  }
 		  catch(Exception e){
@@ -57,4 +60,48 @@ public class ClientController {
 		  }
 		}
 
+	  @ResponseBody
+	  @RequestMapping(value = "/getclients" ,method=RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+	  public ResponseEntity<List<Client>> getClients() {
+			
+		  try{
+			
+	        HttpHeaders headers = new HttpHeaders();
+	        List<Client> clientlist=(List<Client>) clientservice.getAllClients();
+	        
+	        
+	        return new ResponseEntity<List<Client>>(clientlist, HttpStatus.OK);  
+		  }
+		  catch(Exception e){
+			  System.out.println(e);
+			  return new ResponseEntity<List<Client>>(HttpStatus.EXPECTATION_FAILED);  
+			  
+		  }
+		}
+	  
+	  @ResponseBody
+	  @RequestMapping(value = "/getclients/{id}" ,method=RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+	  public ResponseEntity<Client> getClients(@PathVariable("id") long id) {
+			
+		  try{
+			
+	        HttpHeaders headers = new HttpHeaders();
+	        Optional<Client> clientdetail;
+	        clientdetail=clientservice.getClientByClientId(id);
+	        if(clientdetail.isPresent())
+	        {
+	        	client=clientdetail.get();
+	        	return new ResponseEntity<Client>(client, HttpStatus.OK);
+	        }
+	        else{
+	        
+	        return new ResponseEntity<Client>(client, HttpStatus.NOT_FOUND);  
+	        }
+		  }
+		  catch(Exception e){
+			  System.out.println(e);
+			  return new ResponseEntity<Client>(HttpStatus.EXPECTATION_FAILED);  
+			  
+		  }
+		}
 }

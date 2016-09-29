@@ -87,6 +87,10 @@ public class UserController {
 	    public String getAddClientPage(@RequestParam Optional<String> error) {
 	      return "addclient";
 	    }
+	  @RequestMapping(value = "/searchclient" ,method=RequestMethod.GET)
+	    public String getsearchClientPage(@RequestParam Optional<String> error) {
+	      return "searchclient";
+	    }
 	  
 	  @RequestMapping(value = "/navigation" ,method=RequestMethod.GET)
 	    public String getHomePage(@RequestParam Optional<String> error) {
