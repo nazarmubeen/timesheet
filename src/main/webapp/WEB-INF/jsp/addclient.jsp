@@ -18,7 +18,7 @@
 							<div ng-if="ClientCtrl.client.message!=null" class="form-group row">
 									<span>{{ClientCtrl.client.message}}</span>
                                 </div>
-                                <div ng-if="ClientCtrl.client.clientId!=null" class="form-group row">
+                                <div ng-if="ClientCtrl.client.message!=null" class="form-group row">
                                 <label class="col-xs-2 " for="name">Client Id </label>
 								 <div class="col-xs-5">	<span> {{ClientCtrl.client.clientId}}</span></div>
                                
@@ -26,7 +26,7 @@
                               
                             </a>
                                 
-                         <div ng-init="ClientCtrl.init()">       
+                         <div ng-init="ClientCtrl.init()" ng-if="ClientCtrl.client.message==null">       
 							<div class="form-group row">
 									<label class="col-xs-2 " for="name">Name</label>
                                    <div class="col-xs-5"> <input  class="form-control" placeholder="Name" type="text" ng-model="ClientCtrl.client.clientName" autofocus></div>
@@ -108,7 +108,7 @@
 								<span class="col-xs-2 "></span>
 								 <input type="submit"   class="btn btn-success active" value="Save Client">
 								<span class="col-xs-2 "></span>
-								<button type="button" class="btn btn-success active">Delete Client   </button>
+								<button type="button"  class="btn btn-success active" ng-click="ClientCtrl.removeClient()">Delete Client   </button>
 								<span class="col-xs-2 "></span>
 								 <button type="button" class="btn btn-warning active">Cancel  </button>
 								 

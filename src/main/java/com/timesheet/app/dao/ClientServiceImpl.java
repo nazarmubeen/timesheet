@@ -36,5 +36,23 @@ public class ClientServiceImpl implements ClientService {
 		return clientRepository.save(client);
 	}
 
+	@Override
+	public void deleteClient(long ClientId) {
+		// TODO Auto-generated method stub
+		 clientRepository.delete(ClientId);;
+	}
+
+	@Override
+	public Client findById(long id) {
+		// TODO Auto-generated method stub
+		return clientRepository.findOne(id);
+	}
+
+	@Override
+	public Client updateUser(Client client) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }

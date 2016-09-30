@@ -19,22 +19,22 @@
                                         <th>Client Website</th>
                                         <th>fiscal information</th>
 										<th>status</th>
-										<th>Edit</th>
-										<th>delete</th>
+										<th>Country</th>
+										<th>Phone</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                
-                                    <tr class="odd gradeX" ng-repeat="client in ClientCtrl.clients | filter:client.clientName">
-                                        <td><a href="#getclient{{client.clientId}}">{{client.clientId}}</a></td>
-                                        <td>{{client.clientName}}</td>
+                                  <tr class="odd gradeX" ng-repeat="client in ClientCtrl.clients | filter:client.clientName">
+                                     <td>{{client.clientId}}</td>
+                                        <td><a href="#getclient{{client.clientId}}">{{client.clientName}}</a></td>
                                         <td>{{client.clientEmail}}</td>
                                         <td class="center">{{client.clientWebsite}}</td>
                                         <td class="center">{{client.fiscalInformation}}</td>
 										<td class="center">{{client.status}}</td>
-										<td class="center">		<button type="button" class="btn btn-success active" ng-click="ClientCtrl.getClients()">Show Clients</button>	
-                            </a></td>
-                             	<td class="center">	<button type="button" class="btn btn-success active" ng-click="ClientCtrl.getClients()">Show Clients</button>	</td>
+										<td class="center">	{{client.clientCountry	}}</td>
+                           				<td class="center">	{{client.clientPhone}}	</td>
+                             	
                                     </tr>
                                    
 									

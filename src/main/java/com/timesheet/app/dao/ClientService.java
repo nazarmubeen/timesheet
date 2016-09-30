@@ -8,10 +8,16 @@ import com.timesheet.app.model.Client;
 public interface ClientService {
 
 	
-Optional<Client> getClientByClientId(long clientid);
+   Optional<Client> getClientByClientId(long clientid);
 
     
     Collection<Client> getAllClients();
     
     Client setClient(Client client);
+    
+    void deleteClient(long clientId);
+    
+    Client findById(long id);
+    
+    Client updateUser(Client client);
 }

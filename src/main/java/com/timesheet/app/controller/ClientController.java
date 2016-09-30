@@ -60,6 +60,47 @@ public class ClientController {
 		  }
 		}
 
+	  @RequestMapping(value = "/updateclient/{id}", method = RequestMethod.PUT)
+	    public ResponseEntity<Client> updateUser(@PathVariable("id") long id, @RequestBody Client client) {
+	        System.out.println("Updating User " + id);
+	         
+	        Client currentClient = clientservice.findById(id);
+	         
+	        if (currentClient==null) {
+	            System.out.println("User with id " + id + " not found");
+	            return new ResponseEntity<Client>(HttpStatus.NOT_FOUND);
+	        }
+	 
+	        currentClient=client;
+	        clientservice.setClient(currentClient);
+
+	        return new ResponseEntity<Client>(currentClient, HttpStatus.OK);
+	    }
+	 
+
+	  
+	  @ResponseBody
+	  @RequestMapping(value = "/deleteclient/{id}" ,method=RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+	  public ResponseEntity<Client> deleteClientPage(@PathVariable("id") long id) {
+			
+		  try{
+		  System.out.println("Creating client " + id);
+		  clientservice.deleteClient(id);;
+		  System.out.println("client deleted successfully");
+	        HttpHeaders headers = new HttpHeaders();
+	        return new ResponseEntity<Client>(client, HttpStatus.OK);  
+		  }
+		  catch(Exception e){
+			  System.out.println(e);
+			  return new ResponseEntity<Client>(HttpStatus.EXPECTATION_FAILED);  
+			  
+		  }
+		}
+
+	  
+	  
+	  
+	  
 	  @ResponseBody
 	  @RequestMapping(value = "/getclients" ,method=RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
 	  public ResponseEntity<List<Client>> getClients() {
