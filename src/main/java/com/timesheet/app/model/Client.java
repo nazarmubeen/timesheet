@@ -82,7 +82,7 @@ public class Client {
 	public Client(int clientId, String clientAddress, String clientCity, String clientCountry, String clientEmail,
 			String clientFax, String clientName, String clientPhone, String clientPostalcode, String clientState,
 			String clientWebsite, Date createdDatetime, String createdUser, String fiscalInformation,
-			Date modifiedDatetime, String modifiedUser, String status, List<Project> projects) {
+			Date modifiedDatetime, String modifiedUser, String status) {
 		super();
 		this.clientId = clientId;
 		this.clientAddress = clientAddress;
@@ -101,7 +101,7 @@ public class Client {
 		this.modifiedDatetime = modifiedDatetime;
 		this.modifiedUser = modifiedUser;
 		this.status = status;
-		this.projects = projects;
+		
 	}
 
 
@@ -242,37 +242,10 @@ public class Client {
 		this.status = status;
 	}
 
-	public List<Project> getProjects() {
-		return this.projects;
-	}
 
-	public void setProjects(List<Project> projects) {
-		this.projects = projects;
-	}
 
-	public Project addProject(Project project) {
-		getProjects().add(project);
-		project.setClient(this);
 
-		return project;
-	}
 
-	public Project removeProject(Project project) {
-		getProjects().remove(project);
-		project.setClient(null);
-
-		return project;
-	}
-
-	@Override
-	public String toString() {
-		return "Client [clientId=" + clientId + ", clientAddress=" + clientAddress + ", clientCity=" + clientCity
-				+ ", clientCountry=" + clientCountry + ", clientEmail=" + clientEmail + ", clientFax=" + clientFax
-				+ ", clientName=" + clientName + ", clientPhone=" + clientPhone + ", clientPostalcode="
-				+ clientPostalcode + ", clientState=" + clientState + ", clientWebsite=" + clientWebsite
-				+ ", createdDatetime=" + createdDatetime + ", createdUser=" + createdUser + ", fiscalInformation="
-				+ fiscalInformation + ", modifiedDatetime=" + modifiedDatetime + ", modifiedUser=" + modifiedUser
-				+ ", status=" + status + ", projects=" + projects + "]";
-	}
+	
 	
 }

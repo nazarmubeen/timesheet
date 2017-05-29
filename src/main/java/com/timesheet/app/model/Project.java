@@ -16,7 +16,7 @@ public class Project implements Serializable {
 
 	@Id
 	@Column(name="project_id")
-	private int projectId;
+	private long projectId;
 
 	@Column(name="billing_method")
 	private String billingMethod;
@@ -50,15 +50,42 @@ public class Project implements Serializable {
 
 	private String status;
 
+	
 	//bi-directional many-to-one association to Client
 	@ManyToOne
 	@JoinColumn(name="client_id")
 	private Client client;
+	
+	
+	
+	
+	public Project(long projectId, String billingMethod, String color, Date createdDatetime, String createdUser,
+			String description, String hoursEstimate, Date modifiedDatetime, String modifiedUser, String projectName,
+			String projectTemplate, String status, Client client) {
+		super();
+		this.projectId = projectId;
+		this.billingMethod = billingMethod;
+		this.color = color;
+		this.createdDatetime = createdDatetime;
+		this.createdUser = createdUser;
+		this.description = description;
+		this.hoursEstimate = hoursEstimate;
+		this.modifiedDatetime = modifiedDatetime;
+		this.modifiedUser = modifiedUser;
+		this.projectName = projectName;
+		this.projectTemplate = projectTemplate;
+		this.status = status;
+		this.client = client;
+	}
+
+	public void setProjectId(long projectId) {
+		this.projectId = projectId;
+	}
 
 	public Project() {
 	}
 
-	public int getProjectId() {
+	public long getProjectId() {
 		return this.projectId;
 	}
 
@@ -162,4 +189,10 @@ public class Project implements Serializable {
 		this.client = client;
 	}
 
+	public long getClientId()
+	{
+		return this.client.getClientId();
+	}
+	
+	
 }

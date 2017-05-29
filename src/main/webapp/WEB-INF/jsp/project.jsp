@@ -5,7 +5,8 @@
                         <div class="panel-body">
 					<a href="#addproject">	  <button type="button"  class="btn btn-success active">Add Project  </button> 
                             </a>
-
+					<a href="#searchproject">	  <button type="button"  class="btn btn-success active">Search Project  </button> 
+                            </a>
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>

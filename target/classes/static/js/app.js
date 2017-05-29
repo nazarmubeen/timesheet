@@ -26,7 +26,10 @@ app2.config(function($routeProvider) {
         templateUrl : "/addclient",
         controller: "ClientController as ClientCtrl"
     })
-    
+     .when("/searchProjects:clientId", {
+        templateUrl : "/searchproject",
+        controller: "ClientController as ClientCtrl"
+    })
     .when("/project", {
         templateUrl : "/project",
         controller: "myCtrl"

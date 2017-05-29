@@ -64,6 +64,10 @@ public class UserController {
 	    public String getProjectPage(@RequestParam Optional<String> error) {
 	      return "project";
 	    }
+	  @RequestMapping(value = "/searchproject" ,method=RequestMethod.GET)
+	    public String searchProjectPage(@RequestParam Optional<String> error) {
+	      return "searchproject";
+	    }
 	  @RequestMapping(value = "/addproject" ,method=RequestMethod.GET)
 	    public String getAddProjectPage(@RequestParam Optional<String> error) {
 	      return "addproject";

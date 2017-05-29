@@ -35,7 +35,7 @@
 										<td class="center">{{client.status}}</td>
 										<td class="center">	{{client.clientCountry	}}</td>
                            				<td class="center">	{{client.clientPhone}}	</td>
-                             			<td class="center"><a href="#searchProjects{{client.clientId}}">projects</a></td>
+                             			<td class="center"><a href="#getProjects{{client.clientId}}">	projects</a>	</td>
                                     </tr>
                                    
 									
